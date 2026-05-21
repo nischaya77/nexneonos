@@ -1705,5 +1705,108 @@ setInterval(() => {
         }, 600);
     }
 </script>
+<!-- Ritual buttons -->
+<button id="energyBtn">ACTIVE RITUAL</button>
+<button id="calmBtn">QUIET RITUAL</button>
+<button id="focusBtn">DEEP RITUAL</button>
+
+<script>
+  let audioCtx = null;
+  let currentNodes = [];
+
+  function initAudio() {
+    if (!audioCtx || audioCtx.state === "closed") {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+  }
+
+  function stopAll() {
+    currentNodes.forEach(node => node.stop && node.stop());
+    currentNodes = [];
+  }
+
+  function playEnergy() {
+    initAudio();
+    stopAll();
+
+    // Bright pulsing synth
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+
+    osc.type = "sawtooth";
+    osc.frequency.value = 440; // A4
+    gain.gain.value = 0.2;
+
+    // Add rhythmic pulse
+    const lfo = audioCtx.createOscillator();
+    const lfoGain = audioCtx.createGain();
+    lfo.frequency.value = 4; // 4 Hz pulse
+    lfoGain.gain.value = 0.15;
+    lfo.connect(lfoGain).connect(gain.gain);
+
+    osc.connect(gain).connect(audioCtx.destination);
+    osc.start();
+    lfo.start();
+
+    currentNodes.push(osc, lfo);
+  }
+
+  function playCalm() {
+    initAudio();
+    stopAll();
+
+    // Gentle sine waves with slow fade
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+
+    osc.type = "sine";
+    osc.frequency.value = 220; // low soothing tone
+    gain.gain.value = 0.1;
+
+    // Slow breathing effect
+    const lfo = audioCtx.createOscillator();
+    const lfoGain = audioCtx.createGain();
+    lfo.frequency.value = 0.2; // very slow
+    lfoGain.gain.value = 0.05;
+    lfo.connect(lfoGain).connect(gain.gain);
+
+    osc.connect(gain).connect(audioCtx.destination);
+    osc.start();
+    lfo.start();
+
+    currentNodes.push(osc, lfo);
+  }
+
+  function playFocus() {
+    initAudio();
+    stopAll();
+
+    // Anchored steady tone with subtle variation
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+
+    osc.type = "triangle";
+    osc.frequency.value = 330; // E4
+    gain.gain.value = 0.15;
+
+    // Subtle drift
+    const lfo = audioCtx.createOscillator();
+    const lfoGain = audioCtx.createGain();
+    lfo.frequency.value = 0.1; // very slow drift
+    lfoGain.gain.value = 20;   // detune amount
+    lfo.connect(lfoGain).connect(osc.detune);
+
+    osc.connect(gain).connect(audioCtx.destination);
+    osc.start();
+    lfo.start();
+
+    currentNodes.push(osc, lfo);
+  }
+
+  // Attach events
+  document.getElementById("energyBtn").addEventListener("click", playEnergy);
+  document.getElementById("calmBtn").addEventListener("click", playCalm);
+  document.getElementById("focusBtn").addEventListener("click", playFocus);
+</script>
 </body>
 </html>
