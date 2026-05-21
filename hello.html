@@ -1808,5 +1808,226 @@ setInterval(() => {
   document.getElementById("calmBtn").addEventListener("click", playCalm);
   document.getElementById("focusBtn").addEventListener("click", playFocus);
 </script>
+<!-- Ritual buttons -->
+<button id="energyBtn">ACTIVE RITUAL</button>
+<button id="calmBtn">QUIET RITUAL</button>
+<button id="focusBtn">DEEP RITUAL</button>
+
+<script>
+  let audioCtx = null;
+  let currentNodes = [];
+
+  function initAudio() {
+    if (!audioCtx || audioCtx.state === "closed") {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+  }
+
+  function stopAll() {
+    currentNodes.forEach(node => node.stop && node.stop());
+    currentNodes = [];
+  }
+
+  // Utility: create layered oscillator
+  function createOsc(type, freq, gainVal) {
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = type;
+    osc.frequency.value = freq;
+    gain.gain.value = gainVal;
+    osc.connect(gain).connect(audioCtx.destination);
+    osc.start();
+    currentNodes.push(osc);
+    return {osc, gain};
+  }
+
+  function playEnergy() {
+    initAudio();
+    stopAll();
+
+    // Layer 1: bright sawtooth
+    createOsc("sawtooth", 440, 0.15);
+    // Layer 2: higher harmonic
+    createOsc("square", 880, 0.05);
+
+    // Pulse effect
+    const lfo = audioCtx.createOscillator();
+    const lfoGain = audioCtx.createGain();
+    lfo.frequency.value = 4;
+    lfoGain.gain.value = 0.1;
+    lfo.connect(lfoGain).connect(audioCtx.destination.gain);
+    lfo.start();
+    currentNodes.push(lfo);
+  }
+
+  function playCalm() {
+    initAudio();
+    stopAll();
+
+    // Layer 1: low sine drone
+    createOsc("sine", 220, 0.08);
+    // Layer 2: soft harmonic
+    createOsc("triangle", 440, 0.03);
+
+    // Breathing effect
+    const lfo = audioCtx.createOscillator();
+    const lfoGain = audioCtx.createGain();
+    lfo.frequency.value = 0.2;
+    lfoGain.gain.value = 0.05;
+    lfo.connect(lfoGain).connect(audioCtx.destination.gain);
+    lfo.start();
+    currentNodes.push(lfo);
+  }
+
+  function playFocus() {
+    initAudio();
+    stopAll();
+
+    // Layer 1: steady triangle
+    createOsc("triangle", 330, 0.12);
+    // Layer 2: subtle square undertone
+    createOsc("square", 165, 0.04);
+
+    // Slow pitch drift
+    const lfo = audioCtx.createOscillator();
+    const lfoGain = audioCtx.createGain();
+    lfo.frequency.value = 0.1;
+    lfoGain.gain.value = 15;
+    lfo.connect(lfoGain).connect(audioCtx.destination.gain);
+    lfo.start();
+    currentNodes.push(lfo);
+  }
+
+  // Attach events
+  document.getElementById("energyBtn").addEventListener("click", playEnergy);
+  document.getElementById("calmBtn").addEventListener("click", playCalm);
+  document.getElementById("focusBtn").addEventListener("click", playFocus);
+</script>
+<div id="chat"></div>
+<input id="userInput" placeholder="Speak to the Oracle..." />
+<button onclick="sendMessage()">Send</button>
+
+<script>
+  // --- AUDIO SETUP ---
+  let audioCtx = null;
+  let currentNodes = [];
+
+  function initAudio() {
+    if (!audioCtx || audioCtx.state === "closed") {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+  }
+
+  function stopAll() {
+    currentNodes.forEach(node => node.stop && node.stop());
+    currentNodes = [];
+  }
+
+  function createOsc(type, freq, gainVal) {
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = type;
+    osc.frequency.value = freq;
+    gain.gain.value = gainVal;
+    osc.connect(gain).connect(audioCtx.destination);
+    osc.start();
+    currentNodes.push(osc);
+    return {osc, gain};
+  }
+
+  // Ritual soundscapes
+  function playEnergy() {
+    initAudio(); stopAll();
+    createOsc("sawtooth", 440, 0.15);
+    createOsc("square", 880, 0.05);
+    const lfo = audioCtx.createOscillator();
+    const lfoGain = audioCtx.createGain();
+    lfo.frequency.value = 4;
+    lfoGain.gain.value = 0.1;
+    lfo.connect(lfoGain).connect(audioCtx.destination.gain);
+    lfo.start();
+    currentNodes.push(lfo);
+  }
+
+  function playCalm() {
+    initAudio(); stopAll();
+    createOsc("sine", 220, 0.08);
+    createOsc("triangle", 440, 0.03);
+    const lfo = audioCtx.createOscillator();
+    const lfoGain = audioCtx.createGain();
+    lfo.frequency.value = 0.2;
+    lfoGain.gain.value = 0.05;
+    lfo.connect(lfoGain).connect(audioCtx.destination.gain);
+    lfo.start();
+    currentNodes.push(lfo);
+  }
+
+  function playFocus() {
+    initAudio(); stopAll();
+    createOsc("triangle", 330, 0.12);
+    createOsc("square", 165, 0.04);
+    const lfo = audioCtx.createOscillator();
+    const lfoGain = audioCtx.createGain();
+    lfo.frequency.value = 0.1;
+    lfoGain.gain.value = 15;
+    lfo.connect(lfoGain).connect(audioCtx.destination.gain);
+    lfo.start();
+    currentNodes.push(lfo);
+  }
+
+  // --- ORACLE CHAT ---
+  const responses = {
+    greeting: [
+      "Greetings, seeker. The neon flows within you.",
+      "Welcome to Nexneon. The Oracle awaits your ritual.",
+      "The digital sanctuary hums with your presence."
+    ],
+    ritual: [
+      "Your ritual shall be woven in light.",
+      "The currents align—specify your sacred intent.",
+      "I sense your path bending toward transformation."
+    ],
+    default: [
+      "The Oracle contemplates your words...",
+      "Mysteries unfold in the neon lattice.",
+      "Your query echoes in the void."
+    ]
+  };
+
+  function oracleReply(message) {
+    message = message.toLowerCase();
+    let pool;
+
+    if (message.includes("hello") || message.includes("hi")) {
+      pool = responses.greeting;
+    } else if (message.includes("energy")) {
+      playEnergy();
+      pool = ["⚡ Energy ritual engaged. Momentum amplifies."];
+    } else if (message.includes("calm")) {
+      playCalm();
+      pool = ["🕯️ Calm ritual engaged. Silence deepens."];
+    } else if (message.includes("focus")) {
+      playFocus();
+      pool = ["💧 Focus ritual engaged. Anchoring begins."];
+    } else if (message.includes("ritual")) {
+      pool = responses.ritual;
+    } else {
+      pool = responses.default;
+    }
+
+    return pool[Math.floor(Math.random() * pool.length)];
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("userInput").value;
+    const chat = document.getElementById("chat");
+
+    chat.innerHTML += `<div style="color:yellow">You: ${input}</div>`;
+    const reply = oracleReply(input);
+    chat.innerHTML += `<div style="color:cyan">Oracle: ${reply}</div>`;
+
+    document.getElementById("userInput").value = "";
+  }
+</script>
 </body>
 </html>
