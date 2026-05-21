@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
   <meta name="description" content="Nexneon Ritual OS: a mythic-modern operating system inspired by Nepali ritual and premium design.">
-
   <style>
     :root {
       --bg: #05060C;
@@ -827,6 +825,120 @@
       .waitlist-panel { padding: 2.5rem 1.5rem; }
       .nav-link { font-size: 0.95rem; }
     }
+
+    /* Oracle Floating UI */
+    .oracle-root {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      z-index: 10000;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .oracle-trigger {
+      width: 64px;
+      height: 64px;
+      background: #fff;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .oracle-trigger:hover {
+      transform: scale(1.1) rotate(5deg);
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .oracle-panel {
+      position: absolute;
+      bottom: 85px;
+      right: 0;
+      width: 380px;
+      height: 520px;
+      background: rgba(5, 6, 12, 0.95);
+      backdrop-filter: blur(40px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .oracle-panel.active { display: flex; }
+
+    .oracle-header {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .oracle-header span {
+      font-family: 'Cinzel';
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--accent-alt);
+    }
+
+    .chat-display {
+      flex: 1;
+      padding: 24px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      scrollbar-width: none;
+    }
+
+    .chat-msg {
+      max-width: 85%;
+      padding: 12px 16px;
+      border-radius: 14px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .msg-ai {
+      align-self: flex-start;
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      border-bottom-left-radius: 2px;
+    }
+
+    .msg-user {
+      align-self: flex-end;
+      background: var(--accent);
+      color: #fff;
+      border-bottom-right-radius: 2px;
+    }
+
+    .chat-input-container {
+      padding: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .chat-input-container input {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      padding: 14px;
+      border-radius: 12px;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .chat-input-container input:focus {
+      border-color: var(--accent);
+    }
   </style>
 </head>
 <body data-ritual="focus">
@@ -997,7 +1109,7 @@
           <h4>“The interface feels like it breathes with me.”</h4>
           <p>Nexneon helped me stay grounded during long studio sessions. The rituals are subtle but powerful, and the experience feels refined rather than noisy.</p>
           <div class="testimonial-meta">
-            <span>nischya mainali| Creative Lead</span>
+            <span>nischya mainali | Creative Lead</span>
             <span>Jhapa, Nepal</span>
           </div>
         </article>
@@ -1093,6 +1205,68 @@
     <p>© 2026 Nexneon. Crafted for the modern ritual.</p>
   </footer>
 
+  <section id="ai-consciousness" class="container reveal" style="padding-top: 6rem; padding-bottom: 6rem; position: relative; overflow: hidden;">
+    <div class="ai-orb"></div>
+    <div style="text-align:center; position:relative; z-index:2;">
+      <p class="eyebrow">Artificial Consciousness</p>
+      <h2 class="section-title">
+        Nexneon AI Consciousness Core
+      </h2>
+      <p class="section-copy" style="max-width:820px;">
+        Nexneon AI transcends ordinary assistants.
+        It becomes a living digital presence —
+        observing rhythm, understanding emotion,
+        predicting intent, and evolving alongside its creator.
+        Every interaction feels cinematic, sacred,
+        and intelligently alive.
+      </p>
+    </div>
+    <div class="ai-grid">
+      <article class="ai-panel reveal">
+        <div class="ai-symbol">◎</div>
+        <h3>Emotion Mapping</h3>
+        <p>AI analyzes interaction pacing, focus intensity, and environmental behavior to adapt the interface emotionally.</p>
+      </article>
+      <article class="ai-panel reveal">
+        <div class="ai-symbol">◈</div>
+        <h3>Quantum Prediction</h3>
+        <p>Predictive intelligence prepares workflows, launches tools instantly, and removes distractions before they appear.</p>
+      </article>
+      <article class="ai-panel reveal">
+        <div class="ai-symbol">✦</div>
+        <h3>Voice Consciousness</h3>
+        <p>Speak naturally and activate rituals, environments, layouts, focus modes, and cinematic transitions in real time.</p>
+      </article>
+      <article class="ai-panel reveal">
+        <div class="ai-symbol">☉</div>
+        <h3>Celestial Neural Memory</h3>
+        <p>Nexneon remembers creative behavior, energy cycles, preferred aesthetics, and ritual timing to build a unique sanctuary.</p>
+      </article>
+    </div>
+  </section>
+
+  <div class="oracle-root">
+    <div class="oracle-panel" id="oraclePanel">
+      <div class="oracle-header">
+        <span>NEURAL_ORACLE_V.1</span>
+        <button onclick="toggleOracle()" style="background:none; border:none; color:var(--muted); font-size:1.2rem;">×</button>
+      </div>
+      <div class="chat-display" id="chatDisplay">
+        <div class="chat-msg msg-ai">Welcome to Nexneon. I am the Oracle. Specify your ritual or ask about the OS architecture.</div>
+      </div>
+      <div class="chat-input-container">
+        <input type="text" id="oracleInput" placeholder="Enter command..." onkeypress="handleOracleKey(event)">
+      </div>
+    </div>
+    <div class="oracle-trigger" onclick="toggleOracle()">✦</div>
+  </div>
+
+  <div style="position: fixed; bottom: 40px; left: 40px; display: flex; gap: 1rem; z-index:1000;">
+    <button id="energyBtn" class="btn-mag">ACTIVE RITUAL</button>
+    <button id="calmBtn" class="btn-mag btn-secondary">QUIET RITUAL</button>
+    <button id="focusBtn" class="btn-mag">DEEP RITUAL</button>
+  </div>
+
   <script>
     const cursor = document.getElementById('cursor');
     const halo = document.getElementById('cursor-halo');
@@ -1101,6 +1275,94 @@
     const revealElements = document.querySelectorAll('.reveal');
     const faqButtons = document.querySelectorAll('.faq-question');
     const ritualCards = document.querySelectorAll('.ritual-card');
+    const oraclePanel = document.getElementById('oraclePanel');
+    const chatDisplay = document.getElementById('chatDisplay');
+    const oracleInput = document.getElementById('oracleInput');
+    const aiTitle = document.querySelector('#ai-consciousness .section-title');
+
+    let audioCtx = null;
+    let currentNodes = [];
+
+    function initAudio() {
+      if (!audioCtx || audioCtx.state === 'closed') {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+    }
+
+    function stopAll() {
+      currentNodes.forEach(node => {
+        if (typeof node.stop === 'function') {
+          try { node.stop(); } catch {}
+        }
+        if (typeof node.disconnect === 'function') {
+          try { node.disconnect(); } catch {}
+        }
+      });
+      currentNodes = [];
+    }
+
+    function createOsc(type, freq, gainVal) {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = type;
+      osc.frequency.value = freq;
+      gain.gain.value = gainVal;
+      osc.connect(gain).connect(audioCtx.destination);
+      osc.start();
+      currentNodes.push(osc, gain);
+      return { osc, gain };
+    }
+
+    function playEnergy() {
+      initAudio();
+      stopAll();
+      const layer1 = createOsc('sawtooth', 440, 0.15);
+      createOsc('square', 880, 0.05);
+
+      const lfo = audioCtx.createOscillator();
+      const lfoGain = audioCtx.createGain();
+      lfo.frequency.value = 4;
+      lfoGain.gain.value = 0.1;
+      lfo.connect(lfoGain).connect(layer1.gain.gain);
+      lfo.start();
+      currentNodes.push(lfo, lfoGain);
+
+      document.body.setAttribute('data-ritual', 'energy');
+    }
+
+    function playCalm() {
+      initAudio();
+      stopAll();
+      const layer1 = createOsc('sine', 220, 0.08);
+      createOsc('triangle', 440, 0.03);
+
+      const lfo = audioCtx.createOscillator();
+      const lfoGain = audioCtx.createGain();
+      lfo.frequency.value = 0.2;
+      lfoGain.gain.value = 0.05;
+      lfo.connect(lfoGain).connect(layer1.gain.gain);
+      lfo.start();
+      currentNodes.push(lfo, lfoGain);
+
+      document.body.setAttribute('data-ritual', 'calm');
+    }
+
+    function playFocus() {
+      initAudio();
+      stopAll();
+      const layer1 = createOsc('triangle', 330, 0.12);
+      createOsc('square', 165, 0.04);
+
+      const lfo = audioCtx.createOscillator();
+      const lfoGain = audioCtx.createGain();
+      lfo.frequency.value = 0.1;
+      lfoGain.gain.value = 15;
+      lfo.connect(lfoGain).connect(layer1.gain.gain);
+      lfo.start();
+      currentNodes.push(lfo, lfoGain);
+
+      document.body.setAttribute('data-ritual', 'focus');
+    }
 
     document.addEventListener('mousemove', (event) => {
       const { clientX: x, clientY: y } = event;
@@ -1194,1002 +1456,70 @@
         });
       }, 200);
     });
-  </script>
-<!-- ========================= -->
-<!-- NEXNEON AI SUPREME ADDON -->
-<!-- ADD THIS BEFORE </body>  -->
-<!-- ========================= -->
-
-<section id="ai-consciousness" class="container reveal" style="padding-top: 6rem; padding-bottom: 6rem; position: relative; overflow: hidden;">
-
-  <div class="ai-orb"></div>
-
-  <div style="text-align:center; position:relative; z-index:2;">
-
-    <p class="eyebrow">Artificial Consciousness</p>
-
-    <h2 class="section-title">
-      Nexneon AI Consciousness Core
-    </h2>
-
-    <p class="section-copy" style="max-width:820px;">
-      Nexneon AI transcends ordinary assistants.
-      It becomes a living digital presence —
-      observing rhythm, understanding emotion,
-      predicting intent, and evolving alongside its creator.
-
-      Every interaction feels cinematic, sacred,
-      and intelligently alive.
-    </p>
-
-  </div>
-
-  <div class="ai-grid">
-
-    <article class="ai-panel reveal">
-      <div class="ai-symbol">◎</div>
-
-      <h3>Emotion Mapping</h3>
-
-      <p>
-        AI analyzes interaction pacing,
-        focus intensity, and environmental behavior
-        to adapt the interface emotionally.
-      </p>
-    </article>
-
-    <article class="ai-panel reveal">
-      <div class="ai-symbol">◈</div>
-
-      <h3>Quantum Prediction</h3>
-
-      <p>
-        Predictive intelligence prepares workflows,
-        launches tools instantly,
-        and removes distractions before they appear.
-      </p>
-    </article>
-
-    <article class="ai-panel reveal">
-      <div class="ai-symbol">✦</div>
-
-      <h3>Voice Consciousness</h3>
-
-      <p>
-        Speak naturally and activate rituals,
-        environments, layouts, focus modes,
-        and cinematic transitions in real time.
-      </p>
-    </article>
-
-    <article class="ai-panel reveal">
-      <div class="ai-symbol">☉</div>
-
-      <h3>Celestial Neural Memory</h3>
-
-      <p>
-        Nexneon remembers creative behavior,
-        energy cycles, preferred aesthetics,
-        and ritual timing to build a unique sanctuary.
-      </p>
-    </article>
-
-  </div>
-
-</section>
-
-<style>
-
-#ai-consciousness {
-  position: relative;
-}
-
-.ai-orb {
-
-  position: absolute;
-  width: 800px;
-  height: 800px;
-
-  left: 50%;
-  top: 50%;
-
-  transform: translate(-50%, -50%);
-
-  background:
-    radial-gradient(circle,
-    rgba(124,58,237,0.22),
-    rgba(34,211,238,0.12),
-    transparent 70%);
-
-  filter: blur(80px);
-
-  animation: orbPulse 10s ease-in-out infinite;
-
-  pointer-events: none;
-  z-index: 0;
-}
-
-@keyframes orbPulse {
-
-  0%,100% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0.55;
-  }
-
-  50% {
-    transform: translate(-50%, -50%) scale(1.15);
-    opacity: 0.95;
-  }
-
-}
-
-.ai-grid {
-
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2rem;
-
-  margin-top: 4rem;
-
-  position: relative;
-  z-index: 2;
-}
-
-.ai-panel {
-
-  position: relative;
-
-  padding: 2.5rem;
-
-  border-radius: 32px;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.06),
-      rgba(255,255,255,0.03)
-    );
-
-  border: 1px solid rgba(255,255,255,0.12);
-
-  backdrop-filter: blur(22px);
-
-  overflow: hidden;
-
-  transition:
-    transform 0.4s ease,
-    border-color 0.4s ease,
-    box-shadow 0.4s ease;
-
-  box-shadow:
-    0 30px 60px rgba(0,0,0,0.35);
-}
-
-.ai-panel:hover {
-
-  transform: translateY(-10px);
-
-  border-color:
-    rgba(124,58,237,0.7);
-
-  box-shadow:
-    0 40px 80px rgba(124,58,237,0.22);
-}
-
-.ai-panel::before {
-
-  content: '';
-
-  position: absolute;
-  inset: 0;
-
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(124,58,237,0.18),
-      transparent 45%
-    );
-
-  pointer-events: none;
-}
-
-.ai-symbol {
-
-  width: 72px;
-  height: 72px;
-
-  border-radius: 24px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 2rem;
-  color: white;
-
-  margin-bottom: 1.5rem;
-
-  background:
-    rgba(255,255,255,0.06);
-
-  border:
-    1px solid rgba(255,255,255,0.08);
-
-  box-shadow:
-    inset 0 0 20px rgba(255,255,255,0.04);
-}
-
-.ai-panel h3 {
-
-  font-family: 'Cinzel', serif;
-
-  font-size: 1.7rem;
-
-  margin-bottom: 1rem;
-}
-
-.ai-panel p {
-
-  color: var(--muted);
-
-  line-height: 1.9;
-
-  font-size: 1rem;
-}
-
-@media (max-width: 900px) {
-
-  .ai-grid {
-    grid-template-columns: 1fr;
-  }
-
-}
-
-</style>
-
-<script>
-
-/* ========================= */
-/* AI CONSCIOUSNESS EFFECTS */
-/* ========================= */
-
-const aiPanels = document.querySelectorAll('.ai-panel');
-
-aiPanels.forEach(panel => {
-
-  panel.addEventListener('mousemove', (e) => {
-
-    const rect = panel.getBoundingClientRect();
-
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    panel.style.background = `
-      radial-gradient(
-        circle at ${x}px ${y}px,
-        rgba(124,58,237,0.18),
-        rgba(255,255,255,0.04) 45%
-      )
-    `;
-  });
-
-  panel.addEventListener('mouseleave', () => {
-
-    panel.style.background = `
-      linear-gradient(
-        180deg,
-        rgba(255,255,255,0.06),
-        rgba(255,255,255,0.03)
-      )
-    `;
-  });
-
-});
-
-
-/* ========================= */
-/* AI SYSTEM STATUS TEXT */
-/* ========================= */
-
-const aiTitle = document.querySelector('#ai-consciousness .section-title');
-
-const messages = [
-
-  'Nexneon AI Consciousness Core',
-  'Neural Ritual Intelligence',
-  'Celestial Operating Intelligence',
-  'Adaptive Sacred Intelligence'
-
-];
-
-let index = 0;
-
-setInterval(() => {
-
-  index = (index + 1) % messages.length;
-
-  aiTitle.style.opacity = '0';
-
-  setTimeout(() => {
-
-    aiTitle.textContent = messages[index];
-
-    aiTitle.style.opacity = '1';
-
-  }, 400);
-
-}, 4000);
-
-</script>
-<style>
-    /* Oracle Floating UI */
-    .oracle-root {
-        position: fixed;
-        bottom: 40px;
-        right: 40px;
-        z-index: 10000;
-        font-family: 'Inter', sans-serif;
-    }
-
-    .oracle-trigger {
-        width: 64px;
-        height: 64px;
-        background: #fff;
-        border-radius: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5rem;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-        border: 1px solid rgba(255,255,255,0.2);
-    }
-
-    .oracle-trigger:hover {
-        transform: scale(1.1) rotate(5deg);
-        background: var(--accent);
-        color: #fff;
-    }
-
-    .oracle-panel {
-        position: absolute;
-        bottom: 85px;
-        right: 0;
-        width: 380px;
-        height: 520px;
-        background: rgba(5, 6, 12, 0.95);
-        backdrop-filter: blur(40px);
-        border: 1px solid var(--border);
-        border-radius: 24px;
-        display: none;
-        flex-direction: column;
-        overflow: hidden;
-        box-shadow: var(--shadow);
-    }
-
-    .oracle-panel.active { display: flex; }
-
-    .oracle-header {
-        padding: 18px 24px;
-        border-bottom: 1px solid var(--border);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .oracle-header span {
-        font-family: 'Cinzel';
-        font-size: 0.75rem;
-        letter-spacing: 0.2em;
-        color: var(--accent-alt);
-    }
-
-    .chat-display {
-        flex: 1;
-        padding: 24px;
-        overflow-y: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        scrollbar-width: none;
-    }
-
-    .chat-msg {
-        max-width: 85%;
-        padding: 12px 16px;
-        border-radius: 14px;
-        font-size: 0.9rem;
-        line-height: 1.5;
-    }
-
-    .msg-ai {
-        align-self: flex-start;
-        background: rgba(255,255,255,0.05);
-        color: var(--text);
-        border-bottom-left-radius: 2px;
-    }
-
-    .msg-user {
-        align-self: flex-end;
-        background: var(--accent);
-        color: #fff;
-        border-bottom-right-radius: 2px;
-    }
-
-    .chat-input-container {
-        padding: 20px;
-        border-top: 1px solid var(--border);
-    }
-
-    .chat-input-container input {
-        width: 100%;
-        background: rgba(255,255,255,0.05);
-        border: 1px solid var(--border);
-        padding: 14px;
-        border-radius: 12px;
-        color: #fff;
-        outline: none;
-        transition: border-color 0.3s;
-    }
-
-    .chat-input-container input:focus {
-        border-color: var(--accent);
-    }
-</style>
-
-<div class="oracle-root">
-    <div class="oracle-panel" id="oraclePanel">
-        <div class="oracle-header">
-            <span>NEURAL_ORACLE_V.1</span>
-            <button onclick="toggleOracle()" style="background:none; border:none; color:var(--muted); font-size:1.2rem;">×</button>
-        </div>
-        <div class="chat-display" id="chatDisplay">
-            <div class="chat-msg msg-ai">Welcome to Nexneon. I am the Oracle. Specify your ritual or ask about the OS architecture.</div>
-        </div>
-        <div class="chat-input-container">
-            <input type="text" id="oracleInput" placeholder="Enter command..." onkeypress="handleOracleKey(event)">
-        </div>
-    </div>
-    <div class="oracle-trigger" onclick="toggleOracle()">✦</div>
-</div>
-
-<script>
-    const oraclePanel = document.getElementById('oraclePanel');
-    const chatDisplay = document.getElementById('chatDisplay');
-    const oracleInput = document.getElementById('oracleInput');
 
     function toggleOracle() {
-        oraclePanel.classList.toggle('active');
-        if(oraclePanel.classList.contains('active')) {
-            oracleInput.focus();
-        }
-    }
-
-    function handleOracleKey(e) {
-        if (e.key === 'Enter' && oracleInput.value.trim() !== "") {
-            const val = oracleInput.value;
-            addMessage(val, 'user');
-            processCommand(val.toLowerCase());
-            oracleInput.value = "";
-        }
+      oraclePanel.classList.toggle('active');
+      if (oraclePanel.classList.contains('active')) {
+        oracleInput.focus();
+      }
     }
 
     function addMessage(text, sender) {
-        const msg = document.createElement('div');
-        msg.className = `chat-msg msg-${sender}`;
-        msg.textContent = text;
-        chatDisplay.appendChild(msg);
-        chatDisplay.scrollTop = chatDisplay.scrollHeight;
+      const msg = document.createElement('div');
+      msg.className = `chat-msg msg-${sender}`;
+      msg.textContent = text;
+      chatDisplay.appendChild(msg);
+      chatDisplay.scrollTop = chatDisplay.scrollHeight;
     }
 
     function processCommand(cmd) {
-        setTimeout(() => {
-            let response = "Command not recognized. Try 'activate focus', 'who is founder', or 'ritual status'.";
-            
-            if (cmd.includes('focus')) {
-                response = "Activating Deep Focus Ritual. Modulating background frequency...";
-                document.body.setAttribute('data-ritual', 'focus');
-            } else if (cmd.includes('founder') || cmd.includes('nischaya')) {
-                response = "Nexneon was architected by Nischaya Mainali in the Jhapa Node, Nepal.";
-            } else if (cmd.includes('calm')) {
-                response = "Initiating Calm Ritual. Adjusting luminosity levels.";
-                document.body.setAttribute('data-ritual', 'calm');
-            } else if (cmd.includes('energy')) {
-                response = "Energy Ritual online. Increasing kinetic pulse.";
-                document.body.setAttribute('data-ritual', 'energy');
-            } else if (cmd.includes('hello')) {
-                response = "Greetings, seeker. How shall we calibrate your digital sanctuary today?";
-            }
-
-            addMessage(response, 'ai');
-        }, 600);
-    }
-</script>
-<!-- Ritual buttons -->
-<button id="energyBtn">ACTIVE RITUAL</button>
-<button id="calmBtn">QUIET RITUAL</button>
-<button id="focusBtn">DEEP RITUAL</button>
-
-<script>
-  let audioCtx = null;
-  let currentNodes = [];
-
-  function initAudio() {
-    if (!audioCtx || audioCtx.state === "closed") {
-      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    }
-  }
-
-  function stopAll() {
-    currentNodes.forEach(node => node.stop && node.stop());
-    currentNodes = [];
-  }
-
-  function playEnergy() {
-    initAudio();
-    stopAll();
-
-    // Bright pulsing synth
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-
-    osc.type = "sawtooth";
-    osc.frequency.value = 440; // A4
-    gain.gain.value = 0.2;
-
-    // Add rhythmic pulse
-    const lfo = audioCtx.createOscillator();
-    const lfoGain = audioCtx.createGain();
-    lfo.frequency.value = 4; // 4 Hz pulse
-    lfoGain.gain.value = 0.15;
-    lfo.connect(lfoGain).connect(gain.gain);
-
-    osc.connect(gain).connect(audioCtx.destination);
-    osc.start();
-    lfo.start();
-
-    currentNodes.push(osc, lfo);
-  }
-
-  function playCalm() {
-    initAudio();
-    stopAll();
-
-    // Gentle sine waves with slow fade
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-
-    osc.type = "sine";
-    osc.frequency.value = 220; // low soothing tone
-    gain.gain.value = 0.1;
-
-    // Slow breathing effect
-    const lfo = audioCtx.createOscillator();
-    const lfoGain = audioCtx.createGain();
-    lfo.frequency.value = 0.2; // very slow
-    lfoGain.gain.value = 0.05;
-    lfo.connect(lfoGain).connect(gain.gain);
-
-    osc.connect(gain).connect(audioCtx.destination);
-    osc.start();
-    lfo.start();
-
-    currentNodes.push(osc, lfo);
-  }
-
-  function playFocus() {
-    initAudio();
-    stopAll();
-
-    // Anchored steady tone with subtle variation
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-
-    osc.type = "triangle";
-    osc.frequency.value = 330; // E4
-    gain.gain.value = 0.15;
-
-    // Subtle drift
-    const lfo = audioCtx.createOscillator();
-    const lfoGain = audioCtx.createGain();
-    lfo.frequency.value = 0.1; // very slow drift
-    lfoGain.gain.value = 20;   // detune amount
-    lfo.connect(lfoGain).connect(osc.detune);
-
-    osc.connect(gain).connect(audioCtx.destination);
-    osc.start();
-    lfo.start();
-
-    currentNodes.push(osc, lfo);
-  }
-
-  // Attach events
-  document.getElementById("energyBtn").addEventListener("click", playEnergy);
-  document.getElementById("calmBtn").addEventListener("click", playCalm);
-  document.getElementById("focusBtn").addEventListener("click", playFocus);
-</script>
-<!-- Ritual buttons -->
-<button id="energyBtn">ACTIVE RITUAL</button>
-<button id="calmBtn">QUIET RITUAL</button>
-<button id="focusBtn">DEEP RITUAL</button>
-
-<script>
-  let audioCtx = null;
-  let currentNodes = [];
-
-  function initAudio() {
-    if (!audioCtx || audioCtx.state === "closed") {
-      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    }
-  }
-
-  function stopAll() {
-    currentNodes.forEach(node => node.stop && node.stop());
-    currentNodes = [];
-  }
-
-  // Utility: create layered oscillator
-  function createOsc(type, freq, gainVal) {
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.type = type;
-    osc.frequency.value = freq;
-    gain.gain.value = gainVal;
-    osc.connect(gain).connect(audioCtx.destination);
-    osc.start();
-    currentNodes.push(osc);
-    return {osc, gain};
-  }
-
-  function playEnergy() {
-    initAudio();
-    stopAll();
-
-    // Layer 1: bright sawtooth
-    createOsc("sawtooth", 440, 0.15);
-    // Layer 2: higher harmonic
-    createOsc("square", 880, 0.05);
-
-    // Pulse effect
-    const lfo = audioCtx.createOscillator();
-    const lfoGain = audioCtx.createGain();
-    lfo.frequency.value = 4;
-    lfoGain.gain.value = 0.1;
-    lfo.connect(lfoGain).connect(audioCtx.destination.gain);
-    lfo.start();
-    currentNodes.push(lfo);
-  }
-
-  function playCalm() {
-    initAudio();
-    stopAll();
-
-    // Layer 1: low sine drone
-    createOsc("sine", 220, 0.08);
-    // Layer 2: soft harmonic
-    createOsc("triangle", 440, 0.03);
-
-    // Breathing effect
-    const lfo = audioCtx.createOscillator();
-    const lfoGain = audioCtx.createGain();
-    lfo.frequency.value = 0.2;
-    lfoGain.gain.value = 0.05;
-    lfo.connect(lfoGain).connect(audioCtx.destination.gain);
-    lfo.start();
-    currentNodes.push(lfo);
-  }
-
-  function playFocus() {
-    initAudio();
-    stopAll();
-
-    // Layer 1: steady triangle
-    createOsc("triangle", 330, 0.12);
-    // Layer 2: subtle square undertone
-    createOsc("square", 165, 0.04);
-
-    // Slow pitch drift
-    const lfo = audioCtx.createOscillator();
-    const lfoGain = audioCtx.createGain();
-    lfo.frequency.value = 0.1;
-    lfoGain.gain.value = 15;
-    lfo.connect(lfoGain).connect(audioCtx.destination.gain);
-    lfo.start();
-    currentNodes.push(lfo);
-  }
-
-  // Attach events
-  document.getElementById("energyBtn").addEventListener("click", playEnergy);
-  document.getElementById("calmBtn").addEventListener("click", playCalm);
-  document.getElementById("focusBtn").addEventListener("click", playFocus);
-</script>
-<div id="chat"></div>
-<input id="userInput" placeholder="Speak to the Oracle..." />
-<button onclick="sendMessage()">Send</button>
-
-<script>
-  // --- AUDIO SETUP ---
-  let audioCtx = null;
-  let currentNodes = [];
-
-  function initAudio() {
-    if (!audioCtx || audioCtx.state === "closed") {
-      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    }
-  }
-
-  function stopAll() {
-    currentNodes.forEach(node => node.stop && node.stop());
-    currentNodes = [];
-  }
-
-  function createOsc(type, freq, gainVal) {
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.type = type;
-    osc.frequency.value = freq;
-    gain.gain.value = gainVal;
-    osc.connect(gain).connect(audioCtx.destination);
-    osc.start();
-    currentNodes.push(osc);
-    return {osc, gain};
-  }
-
-  // Ritual soundscapes
-  function playEnergy() {
-    initAudio(); stopAll();
-    createOsc("sawtooth", 440, 0.15);
-    createOsc("square", 880, 0.05);
-    const lfo = audioCtx.createOscillator();
-    const lfoGain = audioCtx.createGain();
-    lfo.frequency.value = 4;
-    lfoGain.gain.value = 0.1;
-    lfo.connect(lfoGain).connect(audioCtx.destination.gain);
-    lfo.start();
-    currentNodes.push(lfo);
-  }
-
-  function playCalm() {
-    initAudio(); stopAll();
-    createOsc("sine", 220, 0.08);
-    createOsc("triangle", 440, 0.03);
-    const lfo = audioCtx.createOscillator();
-    const lfoGain = audioCtx.createGain();
-    lfo.frequency.value = 0.2;
-    lfoGain.gain.value = 0.05;
-    lfo.connect(lfoGain).connect(audioCtx.destination.gain);
-    lfo.start();
-    currentNodes.push(lfo);
-  }
-
-  function playFocus() {
-    initAudio(); stopAll();
-    createOsc("triangle", 330, 0.12);
-    createOsc("square", 165, 0.04);
-    const lfo = audioCtx.createOscillator();
-    const lfoGain = audioCtx.createGain();
-    lfo.frequency.value = 0.1;
-    lfoGain.gain.value = 15;
-    lfo.connect(lfoGain).connect(audioCtx.destination.gain);
-    lfo.start();
-    currentNodes.push(lfo);
-  }
-
-  // --- ORACLE CHAT ---
-  const responses = {
-    greeting: [
-      "Greetings, seeker. The neon flows within you.",
-      "Welcome to Nexneon. The Oracle awaits your ritual.",
-      "The digital sanctuary hums with your presence."
-    ],
-    ritual: [
-      "Your ritual shall be woven in light.",
-      "The currents align—specify your sacred intent.",
-      "I sense your path bending toward transformation."
-    ],
-    default: [
-      "The Oracle contemplates your words...",
-      "Mysteries unfold in the neon lattice.",
-      "Your query echoes in the void."
-    ]
-  };
-
-  function oracleReply(message) {
-    message = message.toLowerCase();
-    let pool;
-
-    if (message.includes("hello") || message.includes("hi")) {
-      pool = responses.greeting;
-    } else if (message.includes("energy")) {
-      playEnergy();
-      pool = ["⚡ Energy ritual engaged. Momentum amplifies."];
-    } else if (message.includes("calm")) {
-      playCalm();
-      pool = ["🕯️ Calm ritual engaged. Silence deepens."];
-    } else if (message.includes("focus")) {
-      playFocus();
-      pool = ["💧 Focus ritual engaged. Anchoring begins."];
-    } else if (message.includes("ritual")) {
-      pool = responses.ritual;
-    } else {
-      pool = responses.default;
+      let response = "Command not recognized. Try 'activate focus', 'who is founder', or 'ritual status'.";
+      if (cmd.includes('focus')) {
+        response = "Activating Deep Focus Ritual. Modulating background frequency...";
+        playFocus();
+      } else if (cmd.includes('founder') || cmd.includes('nischaya')) {
+        response = "Nexneon was architected by Nischaya Mainali in the Jhapa Node, Nepal.";
+      } else if (cmd.includes('calm')) {
+        response = "Initiating Calm Ritual. Adjusting luminosity levels.";
+        playCalm();
+      } else if (cmd.includes('energy')) {
+        response = "Energy Ritual online. Increasing kinetic pulse.";
+        playEnergy();
+      } else if (cmd.includes('hello')) {
+        response = "Greetings, seeker. How shall we calibrate your digital sanctuary today?";
+      }
+      addMessage(response, 'ai');
     }
 
-    return pool[Math.floor(Math.random() * pool.length)];
-  }
-
-  function sendMessage() {
-    const input = document.getElementById("userInput").value;
-    const chat = document.getElementById("chat");
-
-    chat.innerHTML += `<div style="color:yellow">You: ${input}</div>`;
-    const reply = oracleReply(input);
-    chat.innerHTML += `<div style="color:cyan">Oracle: ${reply}</div>`;
-
-    document.getElementById("userInput").value = "";
-  }
-</script>
-<div id="chat"></div>
-<input id="userInput" placeholder="Speak to the Oracle..." />
-<button onclick="sendMessage()">Send</button>
-
-<script>
-  // --- ORACLE RESPONSES ---
-  const responses = {
-    greeting: [
-      "Greetings, seeker. The neon flows within you.",
-      "Welcome to Nexneon. The Oracle awaits your ritual.",
-      "The digital sanctuary hums with your presence."
-    ],
-    ritual: [
-      "Your ritual shall be woven in light.",
-      "The currents align—specify your sacred intent.",
-      "I sense your path bending toward transformation."
-    ],
-    default: [
-      "The Oracle contemplates your words...",
-      "Mysteries unfold in the neon lattice.",
-      "Your query echoes in the void."
-    ]
-  };
-
-  function oracleReply(message) {
-    message = message.toLowerCase();
-    let pool;
-
-    if (message.includes("hello") || message.includes("hi")) {
-      pool = responses.greeting;
-    } else if (message.includes("ritual")) {
-      pool = responses.ritual;
-    } else {
-      pool = responses.default;
+    function handleOracleKey(e) {
+      if (e.key === 'Enter' && oracleInput.value.trim() !== "") {
+        const val = oracleInput.value;
+        addMessage(val, 'user');
+        processCommand(val.toLowerCase());
+        oracleInput.value = "";
+      }
     }
 
-    return pool[Math.floor(Math.random() * pool.length)];
-  }
+    const messages = [
+      'Nexneon AI Consciousness Core',
+      'Neural Ritual Intelligence',
+      'Celestial Operating Intelligence',
+      'Adaptive Sacred Intelligence'
+    ];
+    let index = 0;
 
-  // --- SPEECH SYNTHESIS ---
-  function speak(text) {
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.pitch = 0.8;   // deeper mystical tone
-    utterance.rate = 0.9;    // slower, ritualistic pacing
-    utterance.volume = 1.0;  // full volume
-    speechSynthesis.speak(utterance);
-  }
+    setInterval(() => {
+      index = (index + 1) % messages.length;
+      aiTitle.style.opacity = '0';
+      setTimeout(() => {
+        aiTitle.textContent = messages[index];
+        aiTitle.style.opacity = '1';
+      }, 400);
+    }, 4000);
 
-  // --- CHAT HANDLER ---
-  function sendMessage() {
-    const input = document.getElementById("userInput").value;
-    const chat = document.getElementById("chat");
-
-    chat.innerHTML += `<div style="color:yellow">You: ${input}</div>`;
-    const reply = oracleReply(input);
-    chat.innerHTML += `<div style="color:cyan">Oracle: ${reply}</div>`;
-
-    // Make the Oracle speak
-    speak(reply);
-
-    document.getElementById("userInput").value = "";
-  }
-</script>
-<div id="chat"></div>
-<input id="userInput" placeholder="Speak to the Oracle..." />
-<button onclick="sendMessage()">Send</button>
-
-<script>
-  let audioCtx = null;
-  let currentNodes = [];
-
-  function initAudio() {
-    if (!audioCtx || audioCtx.state === "closed") {
-      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    }
-  }
-
-  function stopAll() {
-    currentNodes.forEach(node => {
-      try { node.stop(); } catch(e) {}
-    });
-    currentNodes = [];
-  }
-
-  function createOsc(type, freq, gainVal) {
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.type = type;
-    osc.frequency.value = freq;
-    gain.gain.value = gainVal;
-    osc.connect(gain).connect(audioCtx.destination);
-    osc.start();
-    currentNodes.push(osc);
-    return {osc, gain};
-  }
-
-  // Ritual soundscapes
-  function playEnergy() {
-    initAudio(); stopAll();
-    createOsc("sawtooth", 440, 0.15);
-    createOsc("square", 880, 0.05);
-    const lfo = audioCtx.createOscillator();
-    const lfoGain = audioCtx.createGain();
-    lfo.frequency.value = 4;
-    lfoGain.gain.value = 0.1;
-    lfo.connect(lfoGain).connect(audioCtx.destination.gain);
-    lfo.start();
-    currentNodes.push(lfo);
-  }
-
-  function playCalm() {
-    initAudio(); stopAll();
-    createOsc("sine", 220, 0.08);
-    createOsc("triangle", 440, 0.03);
-    const lfo = audioCtx.createOscillator();
-    const lfoGain = audioCtx.createGain();
-    lfo.frequency.value = 0.2;
-    lfoGain.gain.value = 0.05;
-    lfo.connect(lfoGain).connect(audioCtx.destination.gain);
-    lfo.start();
-    currentNodes.push(lfo);
-  }
-
-  function playFocus() {
-    initAudio(); stopAll();
-    createOsc("triangle", 330, 0.12);
-    createOsc("square", 165, 0.04);
-    const lfo = audioCtx.createOscillator();
-    const lfoGain = audioCtx.createGain();
-    lfo.frequency.value = 0.1;
-    lfoGain.gain.value = 15;
-    lfo.connect(lfoGain).connect(audioCtx.destination.gain);
-    lfo.start();
-    currentNodes.push(lfo);
-  }
-
-  // --- Oracle replies ---
-  const responses = {
-    greeting: ["Greetings, seeker.", "Welcome to Nexneon."],
-    ritual: ["Your ritual shall be woven in light."],
-    default: ["The Oracle contemplates your words..."]
-  };
-
-  function oracleReply(message) {
-    message = message.toLowerCase();
-    if (message.includes("energy")) { playEnergy(); return "⚡ Energy ritual engaged."; }
-    if (message.includes("calm")) { playCalm(); return "🕯️ Calm ritual engaged."; }
-    if (message.includes("focus")) { playFocus(); return "💧 Focus ritual engaged."; }
-    if (message.includes("hello")) return responses.greeting[0];
-    return responses.default[0];
-  }
-
-  function sendMessage() {
-    initAudio(); // ensure audio context is unlocked on first click
-    const input = document.getElementById("userInput").value;
-    const chat = document.getElementById("chat");
-    chat.innerHTML += `<div style="color:yellow">You: ${input}</div>`;
-    const reply = oracleReply(input);
-    chat.innerHTML += `<div style="color:cyan">Oracle: ${reply}</div>`;
-    document.getElementById("userInput").value = "";
-  }
-</script>
+    document.getElementById('energyBtn').addEventListener('click', playEnergy);
+    document.getElementById('calmBtn').addEventListener('click', playCalm);
+    document.getElementById('focusBtn').addEventListener('click', playFocus);
+  </script>
 </body>
 </html>
