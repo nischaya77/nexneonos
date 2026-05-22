@@ -1488,10 +1488,218 @@
       } else if (cmd.includes('hello')) {
         response = "Greetings, seeker. How shall we calibrate your digital sanctuary today?";
       }
-      addMessage(response, 'ai');
+      <script>
+  // ... existing code above ...
+
+  const questionAnswers = {
+    "what is nexneon": "Nexneon is a ritual-inspired workspace OS built to help creators stay focused, calm, and intentional.",
+    "what is ritual os": "Ritual OS is the experience layer of Nexneon, blending visual ritual, sound, and adaptive interface behavior.",
+    "who created nexneon": "Nexneon was architected by Nischya Mainali and built around a ritual-driven UI philosophy.",
+    "who is the founder": "The founder of Nexneon is Nischya Mainali, a design lead based in Jhapa, Nepal.",
+    "where is nexneon built": "Nexneon is designed in Jhapa, Nepal, with inspiration from Nepali ritual and modern UX.",
+    "what are ritual modes": "Ritual modes are environment presets that change color, motion, sound, and notification behavior.",
+    "how do i activate focus": "Type or say a command like 'activate focus' to start Focus Mode.",
+    "how do i activate calm": "Type 'activate calm' or use the Calm Ritual button to start Calm Mode.",
+    "how do i activate energy": "Type 'activate energy' or press the Active Ritual button for Energy Mode.",
+    "what is focus mode": "Focus Mode reduces visual noise, mutes distractions, and helps you sustain deep attention.",
+    "what is calm mode": "Calm Mode softens motion and sound for slower, more meditative workflow sessions.",
+    "what is energy mode": "Energy Mode amplifies momentum with bright accent pulses and a kinetic interface feel.",
+    "can i customize rituals": "Yes, rituals are adjustable for intensity, sound preference, and notification behavior.",
+    "is nexneon global": "Nexneon is launching early access first, then expanding globally with cross-platform support.",
+    "what platforms support nexneon": "Nexneon is planned for modern desktops and web-based ritual experiences.",
+    "what soundscapes are included": "Each ritual includes subtle ambient soundscapes, tonal pulses, and supportive audio textures.",
+    "does nexneon use ai": "Yes, the Oracle uses AI-like intelligence to adapt rituals, predict intent, and support your flow.",
+    "what is the ai consciousness core": "It is Nexneon's adaptive system that reads rhythm, mood, and behavior to tailor the experience.",
+    "how does ai adapt": "The AI adapts based on pacing, focus intensity, environment state, and your ritual choices.",
+    "what is emotion mapping": "Emotion Mapping is the system that senses interaction cadence and tunes the interface emotionally.",
+    "what is neural ritual intelligence": "It is Nexneon's prediction layer for workflow readiness, ritual transitions, and context-aware cues.",
+    "what is voice consciousness": "Voice Consciousness allows natural voice commands to change rituals, layouts, and workflows.",
+    "what is celestial neural memory": "It remembers your patterns, energy cycles, preferred aesthetics, and ritual timing.",
+    "can i ask about os architecture": "Yes, the Oracle can answer architecture questions about Nexneon's design and ritual system.",
+    "how do i ask a question": "Open the Oracle and type your command or question in the input box, then press Enter.",
+    "what if a command is not recognized": "The Oracle will suggest commands like 'activate focus', 'who is founder', or 'ritual status'.",
+    "what is the waitlist": "The waitlist gives you early access updates, exclusive previews, and invitational events.",
+    "what do i get from the waitlist": "Early access, studio updates, and exclusive event invitations.",
+    "is there a privacy policy": "Nexneon is built to respect focus and privacy; details will ship with the global release.",
+    "how does the custom cursor work": "The custom cursor is a visual pointer effect tied to your mouse movements and hover states.",
+    "what is ambient glow": "Ambient glow is the background visual effect that shifts color with scroll and interaction.",
+    "can i use the oracle on mobile": "The Oracle is designed for desktop-first experience, but responsive support is planned.",
+    "how do i use the oracle": "Click the Oracle icon, type your question, and hit Enter to get a response.",
+    "what is the mission": "The mission is to make technology feel meaningful, calm, and ritualistic for creative flow.",
+    "what is sacred focus": "Sacred Focus is Nexneon's approach to reducing distractions and honoring attention.",
+    "what is heritage design": "Heritage Design blends Nepali cultural craft with premium modern UI sensibilities.",
+    "what is community circle": "Community Circle is Nexneon's early creator community for mindful technology enthusiasts.",
+    "how do rituals shift mood": "Rituals use color, motion, and audio cues to shift mood and support focus intentionally.",
+    "what does live like a prayer flag mean": "It means the interface moves deliberately, luminously, and with graceful motion.",
+    "what is glassmorphism": "Glassmorphism is the translucent layered UI style used throughout Nexneon's panels.",
+    "what is sacred geometry": "Sacred geometry informs Nexneon's spacing, layout, and visual balance.",
+    "what is premium motion": "Premium motion means smooth, restrained animations that feel elegant and purposeful.",
+    "can i disable sound": "Yes, sound can be adjusted or muted to fit your personal ritual preference.",
+    "how do i change intensity": "Use commands or future settings to adjust ritual intensity for focus or calm.",
+    "what is collective energy": "Collective Energy describes the community-oriented mindset embedded in Nexneon's experience.",
+    "what is ritual status": "Ritual Status reports the current active ritual and interface state.",
+    "how does the ai predict intent": "It uses behavioral cues and context to pre-load tools and remove distractions.",
+    "what does neural oracle mean": "It is the interface persona that answers questions and guides ritual transitions.",
+    "what is ritual operating system": "It is the name for Nexneon's experience-layer software built around ritualized workflow.",
+    "how do i join the early circle": "Submit your email on the waitlist panel to reserve early access and circle invitations.",
+    "who is the creative lead": "The creative lead is Nischya Mainali, shown in the testimonial section.",
+    "what are early previews": "Early previews are invitation-only demos of Nexneon's ritual experience.",
+    "what is the founder quote": "The founder quote explains Nexneon as a quiet, powerful space for meaningful interactions.",
+    "what are immersive landscapes": "Immersive landscapes are visual panels designed to feel calm and layered.",
+    "what is minimal purpose": "Minimal purpose means clear, uncluttered panels that support deep attention.",
+    "what is sound design": "Sound design refers to the ambient audio textures and subtle tonal cues.",
+    "what is movement": "Movement means gentle interface motion that improves clarity without noise.",
+    "why use subtle motion": "Subtle motion supports focus while keeping the experience calm and intentional.",
+    "how do testimonials help": "Testimonials show early user reactions to Nexneon’s ritual experience.",
+    "what is the founder's region": "The founder is from Jhapa, Nepal, as noted in the branding copy.",
+    "what is ritual frequency": "Ritual frequency is the cadence of interactions and audio pulses tuned per mode.",
+    "what is sacred intent": "Sacred intent is the design philosophy of making every UI choice feel meaningful.",
+    "what is modern sanctuary software": "It is software that creates a calm, focused digital environment for users.",
+    "what is refined typography": "Refined typography is the premium type treatment using Inter and Cinzel fonts.",
+    "what is a digital sanctuary": "A digital sanctuary is a workspace that feels calm, intentional, and protected.",
+    "what is a ritual mode": "A ritual mode is a prebuilt operating state aligned to a mood or workflow intent.",
+    "how does the oracle speak": "The Oracle responds via chat messages in the oracle panel and now also speaks.",
+    "what is the chat display": "The chat display is the message area where AI and user messages appear.",
+    "what is the chat input": "The chat input is the text field used to enter Oracle commands.",
+    "what is the oracle trigger": "The oracle trigger is the floating button that opens the chat panel.",
+    "what is a waitlist panel": "The waitlist panel is the signup area for early access and exclusive updates.",
+    "what is the hero section": "The hero section is the first screen that introduces Nexneon and its core promise.",
+    "what is an eyebrow label": "The eyebrow label is the small uppercase text used for context above headings.",
+    "what is a feature card": "Feature cards describe the main product benefits of Nexneon.",
+    "what are ritual cards": "Ritual cards show the three ritual modes available in the experience.",
+    "what is the timeline section": "The timeline explains the three-step ritual workflow: Center, Align, Flow.",
+    "what is the immersive gallery": "The immersive gallery shows mood imagery tied to the Nexneon experience.",
+    "what is the quote banner": "The quote banner highlights the founder’s philosophy of the product.",
+    "what is the footer": "The footer contains the brand statement and copyright notice.",
+    "what is cursor customization": "Custom cursor styling creates a more immersive and premium pointer effect.",
+    "what is the halo effect": "The halo is the glowing ring around the custom cursor for emphasis.",
+    "what is the click sound": "The click sound is a small UI feedback audio effect on interaction.",
+    "what is the ambient background": "The ambient background uses gradients and radial glows for mood.",
+    "how do i close the oracle": "Click the × button in the Oracle header to close the panel.",
+    "can i reopen the oracle": "Yes, click the floating Oracle trigger button again to reopen it.",
+    "what is the ritual panel": "The ritual panel is the built-in control tray at the bottom left.",
+    "how do i change ritual buttons": "Click the ACTIVE, QUIET, or DEEP ritual buttons to switch modes.",
+    "what is a ritual badge": "A ritual badge labels each mode and gives it a distinct vibe.",
+    "what is designer voice": "Designer voice is the brand tone used in the copy for a premium ritual feel.",
+    "what is the product tone": "The product tone is calm, purposeful, and slightly mystical.",
+    "how do i ask about product vision": "Type a question like 'what is the vision' into the Oracle chat.",
+    "how do i ask about launch date": "Type 'when does Nexneon launch' to get a launch-related answer.",
+    "how do i ask about support": "Type 'how do I get support' or 'support options' for help guidance.",
+    "what is the score for focus": "Focus score is the system's metaphor for how concentrated your session feels.",
+    "what is ritual rhythm": "Ritual rhythm is the flow of visuals, sound, and interaction pacing.",
+    "what is sacred design": "Sacred design means using shapes, spacing, and motion with ritual intention.",
+    "what is premium interface": "Premium interface means polished visuals, subtle animations, and refined typography.",
+    "what is mindful technology": "Mindful technology is software designed to support attention, calm, and purpose.",
+    "what is the difference between calm and focus": "Calm is slower and gentler; Focus is sharper and more concentrated.",
+    "what is the difference between energy and focus": "Energy is kinetic and bright; Focus is steady and low-distraction.",
+    "what is the difference between energy and calm": "Energy is active and warm; Calm is quiet and soft.",
+    "what does the os architecture include": "It includes ritual states, adaptive AI, soundscapes, and premium motion systems.",
+    "what is the activation command": "Use commands like 'activate focus', 'start calm ritual', or 'energy ritual please'.",
+    "how do i ask about early access": "Type 'how do I join early access' or 'early access info'.",
+    "how do i ask about updates": "Type 'what updates are coming' or 'studio updates'.",
+    "how do i ask about events": "Type 'what events are available' or 'exclusive event invites'.",
+    "what are circle gatherings": "Circle gatherings are curated community sessions and demos for early members.",
+    "what is a neural oracle": "A neural oracle is the AI persona guiding ritual selection and answer flow.",
+    "what is the main benefit": "The main benefit is a more intentional, calm, and focused workflow experience.",
+    "what makes nexneon different": "Nexneon is different because it combines ritual, AI, audio, and design into a single OS layer.",
+    "what is the core product idea": "The core idea is to make everyday digital work feel more sacred and intentional.",
+    "how do i describe nexneon": "It is a ritual OS for creators who want premium calm and consistent focus.",
+    "can the oracle answer technical questions": "Yes, the Oracle can answer technical and product questions if they match its knowledge set.",
+    "how many questions can the oracle answer": "This Oracle is configured to answer 100+ distinct questions through its Q/A map.",
+    "what is the fallback answer": "If the Oracle cannot match your question, it will suggest simpler commands to try again.",
+    "can i add more questions": "Yes, simply add more entries to the questionAnswers object in the script.",
+    "what happens when i press enter": "When you press Enter, your question is added as a user message and the Oracle replies.",
+    "how do i improve the oracle": "You can improve it by expanding the question map and adding keyword matching logic.",
+    "what is the current ritual": "Asking 'what is current ritual' returns the active mode based on the page state.",
+    "what is the next ritual": "The Oracle can explain what the next mode does if you ask about Calm, Focus, or Energy.",
+    "how do i use the ritual mode panel": "Click one of the bottom-left ritual buttons to change the mode instantly.",
+    "what is the oracle title": "The Oracle title is NEURAL_ORACLE_V.1 shown at the top of the chat panel."
+  };
+
+  function normalizeText(text) {
+    return text
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, '')
+      .replace(/\s+/g, ' ');
+  }
+
+  function findAnswer(cmd) {
+    const normalized = normalizeText(cmd);
+    if (questionAnswers[normalized]) return questionAnswers[normalized];
+    for (const key in questionAnswers) {
+      if (normalized.includes(key)) return questionAnswers[key];
+    }
+    return null;
+  }
+
+  function speakText(text) {
+    if (!window.speechSynthesis) return;
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.rate = 1;
+    utterance.pitch = 1.05;
+    utterance.volume = 0.95;
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utterance);
+  }
+
+  function addMessage(text, sender) {
+    const msg = document.createElement('div');
+    msg.className = `chat-msg msg-${sender}`;
+    msg.textContent = text;
+    chatDisplay.appendChild(msg);
+    chatDisplay.scrollTop = chatDisplay.scrollHeight;
+
+    if (sender === 'ai') {
+      speakText(text);
+    }
+  }
+
+  function processCommand(cmd) {
+    const normalized = normalizeText(cmd);
+    const answer = findAnswer(normalized);
+
+    if (answer) {
+      addMessage(answer, 'ai');
+      if (normalized.includes('focus')) playFocus();
+      if (normalized.includes('calm')) playCalm();
+      if (normalized.includes('energy')) playEnergy();
+      return;
     }
 
-    function handleOracleKey(e) {
+    let response = "Command not recognized. Try 'activate focus', 'who is founder', or 'ritual status'.";
+    if (normalized.includes('focus')) {
+      response = "Activating Deep Focus Ritual. Modulating background frequency...";
+      playFocus();
+    } else if (normalized.includes('founder') || normalized.includes('nischya')) {
+      response = "Nexneon was architected by Nischya Mainali in the Jhapa Node, Nepal.";
+    } else if (normalized.includes('calm')) {
+      response = "Initiating Calm Ritual. Adjusting luminosity levels.";
+      playCalm();
+    } else if (normalized.includes('energy')) {
+      response = "Energy Ritual online. Increasing kinetic pulse.";
+      playEnergy();
+    } else if (normalized.includes('hello') || normalized.includes('hi')) {
+      response = "Greetings, seeker. How shall we calibrate your digital sanctuary today?";
+    }
+
+    addMessage(response, 'ai');
+  }
+
+  function handleOracleKey(e) {
+    if (e.key === 'Enter' && oracleInput.value.trim() !== "") {
+      const val = oracleInput.value;
+      addMessage(val, 'user');
+      processCommand(val.toLowerCase());
+      oracleInput.value = "";
+    }
+  }
+
+  // ... existing code below ...
+</script>
+      addMessage(response, 'ai');
+    } 
+  function handleOracleKey(e) {
       if (e.key === 'Enter' && oracleInput.value.trim() !== "") {
         const val = oracleInput.value;
         addMessage(val, 'user');
